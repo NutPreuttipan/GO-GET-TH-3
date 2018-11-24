@@ -23,10 +23,7 @@ func main() {
 	mongoPass := viper.GetString("MONGO.Pass")
 	port := viper.GetString("port")
 
-
-	
-
-	conString := fmt.Sprintf("%v:%v@%v",mongoUser,mongoPass,mongoHost)
+	conString := fmt.Sprintf("%s:%s@%s",mongoUser,mongoPass,mongoHost)
 
 	session, err := mgo.Dial(conString)
 	if err != nil {
