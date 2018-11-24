@@ -16,7 +16,7 @@ import (
 func main() {
 
 	e := echo.New()
-
+	viper.AutomaticEnv()
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	mongoHost := viper.GetString("MONGO.HOST")
