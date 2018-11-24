@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"strings"
 	"fmt"
 	"github.com/labstack/echo/middleware"
@@ -23,6 +24,7 @@ func main() {
 	mongoPass := viper.GetString("MONGO.PASS")
 	port := viper.GetString("port")
 
+	log.Printf("%s:%s@%s",mongoUser,mongoPass,mongoHost)
 	conString := fmt.Sprintf("%s:%s@%s",mongoUser,mongoPass,mongoHost)
 
 	session, err := mgo.Dial(conString)
