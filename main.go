@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strings"
 	"fmt"
 	"github.com/labstack/echo/middleware"
 	"net/http"
@@ -8,25 +9,22 @@ import (
 	"github.com/labstack/echo"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
-	_ "github.com/spf13/viper"
+	"github.com/spf13/viper"
 )
 
 func main() {
 
 	e := echo.New()
 
-	// viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
-	// mongoHost := viper.GetString("mongo.Host")
-	// mongoUser := viper.GetString("mongo.User")
-	// mongoPass := viper.GetString("mongo.Pass")
-	// port := viper.GetString("pass")
+	mongoHost := viper.GetString("MONGO.Host")
+	mongoUser := viper.GetString("MONGO.User")
+	mongoPass := viper.GetString("MONGO.Pass")
+	port := viper.GetString("port")
 
 
-	mongoHost := "13.250.119.252"
-	mongoUser := "root"
-	mongoPass := "example"
-	port := "1323"
+	
 
 	conString := fmt.Sprintf("%v:%v@%v",mongoUser,mongoPass,mongoHost)
 
