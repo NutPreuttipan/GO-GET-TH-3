@@ -18,9 +18,9 @@ func main() {
 
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
-	mongoHost := viper.GetString("MONGO.Host")
-	mongoUser := viper.GetString("MONGO.User")
-	mongoPass := viper.GetString("MONGO.Pass")
+	mongoHost := viper.GetString("MONGO.HOST")
+	mongoUser := viper.GetString("MONGO.USER")
+	mongoPass := viper.GetString("MONGO.PASS")
 	port := viper.GetString("port")
 
 	conString := fmt.Sprintf("%s:%s@%s",mongoUser,mongoPass,mongoHost)
